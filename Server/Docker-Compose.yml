@@ -1,0 +1,20 @@
+services:
+
+    glassfish:
+        image: glassfish:latest
+        ports:
+            - 80:80
+            - 8000:8080
+        restart: always
+        links:
+            - mysql
+    mysql:
+        build: ./MYSQL
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: toor
+            MYSQL_DATABASE: hotel
+            MYSQL_USER: sa
+            MYSQL_PASSWORD: 123456
+        ports:
+            - 3306:3306

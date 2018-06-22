@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MitgliedMock implements MitgliedInterface{
+public class Mitglied implements MitgliedInterface{
     private int id;
     private String vorname;
     private String nachname;
@@ -8,6 +8,14 @@ public class MitgliedMock implements MitgliedInterface{
     private List<Aufenthalt> aufenthalte;
     private String pwHash;
 
+    public Mitglied(int id, String vorname, String nachname, String email, List<Aufenthalt> aufenthalte, String pwHash) {
+        this.id = id;
+        this.vorname = vorname;
+        this.nachname = nachname;
+        this.email = email;
+        this.aufenthalte = aufenthalte;
+        this.pwHash = pwHash;
+    }
 
     @Override
     public String getVorname() {
@@ -55,5 +63,9 @@ public class MitgliedMock implements MitgliedInterface{
     }
     public static String hashPW(String pw){
         return pw;
+    }
+
+    public void addAufenhalt( Aufenthalt a){
+        aufenthalte.add(a);
     }
 }
